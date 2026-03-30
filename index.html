@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mood Music App</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 🔐 Protect page -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+
+<h1>🎵 Mood Based Music App</h1>
+
+<button onclick="logout()">🚪 Logout</button>
+
+
+<input type="text" id="search" placeholder="Search song..." onkeyup="searchSongs()">
+
+<div class="moods">
+  <button onclick="loadSongs('happy')">😊 Happy</button>
+  <button onclick="loadSongs('sad')">😢 Sad</button>
+  <button onclick="loadSongs('chill')">😌 Chill</button>
+  <button onclick="loadSongs('energy')">⚡ Energy</button>
+</div>
+
+<h2>🎶 Songs</h2>
+<ul id="songList"></ul>
+
+<h2>🎧 Playlist</h2>
+<ul id="playlist"></ul>
+
+<audio id="player" controls></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
